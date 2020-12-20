@@ -2,6 +2,7 @@ fn main() {
     println!("Hello, world!");
     tuple();
     array();
+    person();
 }
 
 fn tuple() {
@@ -17,4 +18,17 @@ fn array() {
     a[1] = b[1];
     a[2] = b[2];
     println!("{:?}", &a[1..3]);
+}
+
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn person() {
+    let p = Person {
+        name: String::from("Jhon"),
+        age: 8,
+    };
+    println!("{} | {}", p.name, p.age);
 }
