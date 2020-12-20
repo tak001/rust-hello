@@ -84,7 +84,7 @@ fn func(code: i32) -> Result<i32, String> {
     Result::Ok(100)
 }
 
-fn func2() {
+// fn func2() {
     // let result: Result<i32, String> = Result::Ok(200);
     // let next_result = result.and_then
-}
+// }
