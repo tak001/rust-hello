@@ -99,4 +99,10 @@ fn hoge() {
     let v2 = vec![0; 5]; // 0を5つ埋めて初期化
     // {:?} 配列や構造体を一発で出す
     println!("{:?} | {:?}", v1, v2);
+
+    // for
+    for element in &v1 {
+        println!("{}", element);
+    }
 }
+
