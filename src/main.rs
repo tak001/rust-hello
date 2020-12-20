@@ -4,6 +4,7 @@
     array();
     person();
     foo();
+    hoge();
 }
 
 fn tuple() {
@@ -88,3 +89,14 @@ fn func(code: i32) -> Result<i32, String> {
     // let result: Result<i32, String> = Result::Ok(200);
     // let next_result = result.and_then
 // }
+
+// Vec
+// ベクタ型で、配列とは違い内部に収められる要素の数を増減させることができる。
+// 初期値を便利に実施するためのvec![]マクロが用意されており、これを使うことで予め要素をつめた状態を作ることができる
+
+fn hoge() {
+    let v1 = vec![1, 2, 3, 4, 5]; // 1~5の数を入れて初期化
+    let v2 = vec![0; 5]; // 0を5つ埋めて初期化
+    // {:?} 配列や構造体を一発で出す
+    println!("{:?} | {:?}", v1, v2);
+}
