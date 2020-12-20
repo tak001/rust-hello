@@ -3,6 +3,7 @@ fn main() {
     tuple();
     array();
     person();
+    foo();
 }
 
 fn tuple() {
@@ -31,4 +32,18 @@ fn person() {
         age: 8,
     };
     println!("{} | {}", p.name, p.age);
+}
+
+#[derive(Debug)]
+enum Event {
+    Quit,
+    KeyDown(u8),
+    MouseDown { x: i32, y: i32 },
+}
+
+fn foo() {
+    let e1 = Event::Quit;
+    let e2 = Event::KeyDown(1);
+    let e3 = Event::MouseDown { x: 10, y: 10 };
+    println!("{:?} | {:?} | {:?}", e1, e2, e3);
 }
