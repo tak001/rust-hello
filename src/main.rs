@@ -15,6 +15,8 @@ fn main() {
     label();
     mat1();
     mat2();
+    let x = add(1, 2);
+    println!("x: {}", x);
 }
 
 fn tuple() {
@@ -268,4 +270,9 @@ fn mat2() {
         Color::Blue => println!("Blue"),
         Color::Green => println!("Green"),
     }
+}
+
+fn add(a: i32, b: i32) -> i32 {
+    // 関数ないの最後に、セミころんなしで記述された値を戻り値として扱うルールがある
+    a + b
 }
