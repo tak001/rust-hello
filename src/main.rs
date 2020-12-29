@@ -13,6 +13,8 @@ fn main() {
     wairu();
     fo();
     label();
+    mat1();
+    mat2();
 }
 
 fn tuple() {
@@ -233,5 +235,37 @@ fn label() {
             println!("sub loop end"); // 表示されない
         }
         println!("main loop end"); // 表示されない
+    }
+}
+
+// match(switch)
+/*
+型の構造に一致しているか確認できる
+数値/文字列/列挙型/タプル型/構造体など
+値の範囲やワイルドカードを使って広範囲に比較させることもできる
+*/
+
+fn mat1() {
+    let i: i32 = 1;
+    match i {
+        1 => println!("1"),
+        2 => println!("2"),
+        3 => println!("3"),
+        _ => println!("misc"), // アンダースコアは、あらゆる値にマッチする
+    }
+}
+
+enum Color {
+    Red,
+    Blue,
+    Green,
+}
+
+fn mat2() {
+    let c = Color::Red;
+    match c {
+        Color::Red => println!("Red"),
+        Color::Blue => println!("Blue"),
+        Color::Green => println!("Green"),
     }
 }
