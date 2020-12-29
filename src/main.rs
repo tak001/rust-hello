@@ -9,6 +9,9 @@ fn main() {
     fuga();
     ihu();
     ihu2();
+    ru_pu();
+    wairu();
+    fo();
 }
 
 fn tuple() {
@@ -172,4 +175,44 @@ fn ihu2() {
     let number = 1;
     let result = if 0 <= number { number } else { -number };
     println!("{:?}", result);
+}
+
+// loop
+fn ru_pu() {
+    let mut count = 0;
+
+    let result = loop {
+        println!("count: {}", count);
+        count += 1;
+        if count == 10 {
+            break count;
+        }
+    };
+
+    println!("loop result: {:?}", result);
+    // count: 0~9 loop result: 10
+}
+
+fn wairu() {
+    let mut count = 0;
+
+    while count < 10 {
+        println!("count: {}", count);
+        count += 1;
+    }
+    // count: 0~9
+}
+
+// 繰り返したい回数や、処理したい要素の集合が決まっている場合に有効
+fn fo() {
+    let count: i32;
+
+    for count in 0..10 {
+        println!("count: {}", count);
+    }
+
+    let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    for element in &array {
+        println!("element: {}", element);
+    }
 }
