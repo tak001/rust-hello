@@ -12,6 +12,7 @@ fn main() {
     ru_pu();
     wairu();
     fo();
+    label();
 }
 
 fn tuple() {
@@ -214,5 +215,23 @@ fn fo() {
     let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     for element in &array {
         println!("element: {}", element);
+    }
+}
+
+/*
+whileもforも繰り返しの中でbreakを使うことができる
+またloop/while/forにはラベルをつけることができ、breakするときに、そのラベルを指定して繰り返すを抜けることができる
+ラベル名はその先頭に'をつける必要がある
+*/
+fn label() {
+    'main: loop {
+        println!("main loop start");
+        'sub: loop {
+            println!("sub loop start");
+
+            break 'main;
+            println!("sub loop end"); // 表示されない
+        }
+        println!("main loop end"); // 表示されない
     }
 }
