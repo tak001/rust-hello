@@ -7,6 +7,8 @@ fn main() {
     hoge();
     pbox();
     fuga();
+    ihu();
+    ihu2();
 }
 
 fn tuple() {
@@ -144,4 +146,30 @@ fn fuga() {
     let v2 = 10u64;
 }
 
+// 定数
+/*
+* const static
+* const = 常に値の変更不可
+* static = 変更可能
+* グローバルスコープで定義したstaticの値は、どこからでも変更が可能な危険な変数になる
+* そのため、この値を操作するときにはunsafeブロック内に入れる必要がある
+*/
 
+// if
+fn ihu() {
+    let number = 1;
+    if 0 < number {
+        println!("0 < number");
+    } else if number < 0 {
+        println!("number < 0");
+    } else {
+        println!("0 == number");
+    }
+}
+
+// Rustにおけるifは式なので、if式で評価した値を、変数に束縛することや、関数の引数にすることができる
+fn ihu2() {
+    let number = 1;
+    let result = if 0 <= number { number } else { -number };
+    println!("{:?}", result);
+}
