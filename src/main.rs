@@ -1,4 +1,4 @@
- fn main() {
+fn main() {
     println!("Hello, world!");
     tuple();
     array();
@@ -6,6 +6,7 @@
     foo();
     hoge();
     pbox();
+    fuga();
 }
 
 fn tuple() {
@@ -88,8 +89,8 @@ fn func(code: i32) -> Result<i32, String> {
 }
 
 // fn func2() {
-    // let result: Result<i32, String> = Result::Ok(200);
-    // let next_result = result.and_then
+// let result: Result<i32, String> = Result::Ok(200);
+// let next_result = result.and_then
 // }
 
 // Vec
@@ -99,7 +100,7 @@ fn func(code: i32) -> Result<i32, String> {
 fn hoge() {
     let v1 = vec![1, 2, 3, 4, 5]; // 1~5の数を入れて初期化
     let v2 = vec![0; 5]; // 0を5つ埋めて初期化
-    // {:?} 配列を一発で出す
+                         // {:?} 配列を一発で出す
     println!("{:?} | {:?}", v1, v2);
 
     // for
@@ -123,3 +124,24 @@ fn pbox() {
 fn print(s: Box<[u8]>) {
     println!("{:?}", s);
 }
+
+// 変数宣言
+/*
+* let variable = 再代入不可
+* let mut variable = 再代入可能
+*/
+// 型推論
+fn fuga() {
+    let immut_val = 10;
+    let mut mut_val = 20;
+    mut_val += immut_val;
+    println!("mut_val: {:?}", mut_val);
+
+    // 型の明示
+    let v1: u64 = 10;
+
+    // 数値限定で、値に直接型名をくっつける
+    let v2 = 10u64;
+}
+
+
