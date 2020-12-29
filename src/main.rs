@@ -17,6 +17,8 @@ fn main() {
     mat2();
     let x = add(1, 2);
     println!("x: {}", x);
+    let s = abs(1);
+    println!("s; {}", s);
 }
 
 fn tuple() {
@@ -275,4 +277,12 @@ fn mat2() {
 fn add(a: i32, b: i32) -> i32 {
     // 関数ないの最後に、セミころんなしで記述された値を戻り値として扱うルールがある
     a + b
+}
+
+fn abs(number: i32) -> i32 {
+    if number < 0 {
+        // return を入れたパターン
+        return -number;
+    }
+    number
 }
