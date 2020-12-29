@@ -5,6 +5,7 @@
     person();
     foo();
     hoge();
+    pbox();
 }
 
 fn tuple() {
@@ -35,6 +36,7 @@ fn person() {
     println!("{} | {}", p.name, p.age);
 }
 
+// 構造体を一発でだすために#[derive(Debug)]と{:?}
 #[derive(Debug)]
 enum Event {
     Quit,
@@ -97,7 +99,7 @@ fn func(code: i32) -> Result<i32, String> {
 fn hoge() {
     let v1 = vec![1, 2, 3, 4, 5]; // 1~5の数を入れて初期化
     let v2 = vec![0; 5]; // 0を5つ埋めて初期化
-    // {:?} 配列や構造体を一発で出す
+    // {:?} 配列を一発で出す
     println!("{:?} | {:?}", v1, v2);
 
     // for
@@ -106,3 +108,18 @@ fn hoge() {
     }
 }
 
+// Box
+// Boxを使うと、値はヒープ領域に確保される
+// コンパイル時にサイズがわからない型を収納すること
+// 大きなサイズの型の値を渡す際に、データの中身をコピーせず、ポインタで渡すこと
+// 共通のトレイとを実装した様々な型を画一的にポインタで扱うこと
+fn pbox() {
+    let byte_array = [b'h', b'e', b'l', b'l', b'o'];
+    print(Box::new(byte_array));
+    let byte_array = [b'w', b'o', b'l', b'd', b'!'];
+    print(Box::new(byte_array));
+}
+
+fn print(s: Box<[u8]>) {
+    println!("{:?}", s);
+}
