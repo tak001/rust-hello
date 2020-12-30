@@ -19,6 +19,22 @@ fn main() {
     println!("x: {}", x);
     let s = abs(1);
     println!("s; {}", s);
+
+    let p = Person2 {
+        name: String::from("Taro"),
+        age: 20,
+    };
+    p.say_name();
+    p.say_age();
+
+    let p2 = Person3 {
+        name: String::from("Taro"),
+        age: 20,
+    };
+    p2.say_name().say_age();
+
+    let p3 = Person3::new("Taro", 20);
+    p3.say_name().say_age();
 }
 
 fn tuple() {
@@ -36,6 +52,7 @@ fn array() {
     println!("{:?}", &a[1..3]);
 }
 
+// struct = interface的な
 struct Person {
     name: String,
     age: u32,
@@ -285,4 +302,58 @@ fn abs(number: i32) -> i32 {
         return -number;
     }
     number
+}
+
+//impl
+/*
+構造体にメソッドを加えることができる
+*/
+
+struct Person2 {
+    name: String,
+    age: u32,
+}
+
+impl Person2 {
+    fn say_name(&self) {
+        println!("I am {}", self.name);
+    }
+
+    fn say_age(&self) {
+        println!("I am {} year(s) old", self.age);
+    }
+}
+
+/*
+メソッドの戻り値に自分自身の型を指定することで、メソッドチェーンを使うこともできる
+*/
+struct Person3 {
+    name: String,
+    age: u32,
+}
+
+impl Person3 {
+    fn say_name(&self) -> &Self {
+        println!("I am {}", self.name);
+        self
+    }
+
+    fn say_age(&self) -> &Self {
+        println!("I am {} year(s) old", self.age);
+        self
+    }
+}
+
+/*
+引数で&selfだと、構造体のメンバ変数を変更することができない。
+変更可能にするには&mut selfにする
+*/
+
+impl Person3 {
+    fn new(name: &str, age: u32) -> Person3 {
+        Person3 {
+            name: String::from(name),
+            age: age,
+        }
+    }
 }
